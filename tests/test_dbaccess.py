@@ -15,3 +15,8 @@ def test_DBアクセスがある引数ありの関数を正しく呼び出され
     m = mocker.patch("src.db_access.db_access_body_with_parameters")
     db.db_access_func_with_parameters("abc", 123)
     m.assert_called_with("abc", 123)
+
+def test_DBアクセスがある引数ありの関数を正しい回数呼び出せているか(mocker):
+    m = mocker.patch("src.db_access.db_access_body_with_parameters")
+    db.db_access_func_with_parameters("def", 456)
+    m.assert_called_once_with("def", 456)
